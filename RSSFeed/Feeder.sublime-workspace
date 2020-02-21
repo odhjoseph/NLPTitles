@@ -1,0 +1,392 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"se",
+				"searchDict"
+			],
+			[
+				"rssFe",
+				"rssFeeds"
+			],
+			[
+				"rss",
+				"rssFeed"
+			],
+			[
+				"Print",
+				"ƒ・Println(a ...interface{}) \t\t-> (n int, err error)"
+			],
+			[
+				"Outp",
+				"C・OutputNormal"
+			],
+			[
+				"He",
+				"HelloReply"
+			],
+			[
+				"Hellore",
+				"HelloReply"
+			],
+			[
+				"Hell",
+				"HelloRequest"
+			],
+			[
+				"newE",
+				"NewEncoder"
+			],
+			[
+				"w",
+				"ƒ・WriteHeader(statusCode int) \t\t-> ()"
+			],
+			[
+				"Response",
+				"T・ResponseWriter"
+			],
+			[
+				"prin",
+				"ƒ・Println(a ...interface{}) \t\t-> (n int, err error)"
+			],
+			[
+				"date",
+				"datetime"
+			],
+			[
+				"daily",
+				"dailyWork"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Python 3/Python3.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Golang Build/Go.sublime-build",
+					""
+				],
+				[
+					"Packages/Golang Build/Go.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Golang Build/Go.sublime-build",
+					"Test"
+				],
+				[
+					"Packages/Golang Build/Go.sublime-build",
+					"Install"
+				],
+				[
+					"Packages/Golang Build/Go.sublime-build",
+					"Cross-Compile (Interactive)"
+				],
+				[
+					"Packages/Golang Build/Go.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Golang Build/Go.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/Python 3/Python3.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Python 3/Python3.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"termina",
+				"Go: Open Terminal"
+			],
+			[
+				"select t",
+				"gruvbox: Select Theme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"find",
+				"Find: In Project"
+			],
+			[
+				"theme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"color sh",
+				"UI: Select Color Scheme"
+			],
+			[
+				"go build ",
+				"Build With: Go - Run"
+			],
+			[
+				"golang buid",
+				"Set Syntax: Golang Build Output"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 154.0,
+		"history":
+		[
+			"google",
+			"googler"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/josephodhiambo/Python",
+		"/Users/josephodhiambo/Python/RSSFeed",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts/Postgre",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts/titleDisplay"
+	],
+	"file_history":
+	[
+		"/Users/josephodhiambo/Python/RSSFeed/.gitignore",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts/feedData.py",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts/Postgre/rdsAWS.py",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts/Postgre/readME.MD",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts/Postgre/rdsPost.go",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts/Postgre/awsPost.py",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts/titleDisplay/sendAWS.go",
+		"/Users/josephodhiambo/Library/Application Support/Sublime Text 3/Packages/Googler/googler.sublime-settings",
+		"/Users/josephodhiambo/Library/Application Support/Sublime Text 3/Packages/User/googler.sublime-settings",
+		"/Users/josephodhiambo/Python/RSSFeed/readingJSON.go",
+		"/Users/josephodhiambo/Python/RSSFeed/tester.json",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts/feedMod.py",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts/search2020-02-19.json",
+		"/Users/josephodhiambo/Python/RSSFeed/pythonScripts/2020-02-18.json",
+		"/Users/josephodhiambo/Python/RSSFeed/RSSFeed",
+		"/Users/josephodhiambo/Go/godev/vehicle-registration-service/db/mongoStore.go",
+		"/Users/josephodhiambo/Go/godev/vehicle-registration-service/db/model.go",
+		"/Users/josephodhiambo/Go/godev/vehicle-registration-service/server/server.go",
+		"/Users/josephodhiambo/Go/godev/vehicle-registration-service/db/instrumentedStore.go",
+		"/Users/josephodhiambo/Go/godev/vehicle-registration-service/db/store.go",
+		"/Users/josephodhiambo/Go/MyProjects/TerminalUI/main.go",
+		"/Users/josephodhiambo/Go/GitLabFormat.csv",
+		"/Users/josephodhiambo/Go/MyProjects/WorkFlow",
+		"/Users/josephodhiambo/.ssh/id_rsa.pub",
+		"/Users/josephodhiambo/Go/MyProjects/WebsiteAngular:readme.md",
+		"/Users/josephodhiambo/Go/MyProjects/refFiles/main.go",
+		"/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Kernel.framework/Versions/A/Headers/IOKit/storage/IOFDiskPartitionScheme.h",
+		"/Users/josephodhiambo/Go/src/google.golang.org/grpc/examples/helloworld/greeter_client/main.go",
+		"/Users/josephodhiambo/Go/src/google.golang.org/grpc/examples/helloworld/greeter_server/main.go",
+		"/Users/josephodhiambo/Go/src/google.golang.org/grpc/examples/helloworld/helloworld/helloworld.proto",
+		"/Users/josephodhiambo/Go/MyProjects/restEx.go",
+		"/Users/josephodhiambo/Programming/messingAround.go",
+		"/Users/josephodhiambo/Programming/jsonFiles/2020-01-",
+		"/Users/josephodhiambo/Programming/workLogs.py"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 46.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 104.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Feeder.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 302.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
