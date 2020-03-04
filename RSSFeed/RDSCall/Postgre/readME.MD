@@ -1,0 +1,1 @@
+Handles the communication between the AWS Database and my localhost
