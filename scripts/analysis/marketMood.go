@@ -1,37 +1,62 @@
-package main 
+package main
 
 import (
-	"os"
-	"log"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
+	"os"
+	"regex"
+
+	"gopkg.in/jdkato/prose.v2"
 )
 
+//MarketFile returns file with part of it cleaned for python analysis
+type MarketFile struct {
+	marketTitles  string
+	marketSummary string
+	cleanedTitles string
+}
 
 func main() {
 	var (
 		marketTitles, marketSummary = createDictionary()
 	)
 
-	fmt.Println(marketTitles, marketSummary)
+	titlesDoc, err := prose.NewDocument(marketTitles)
+	if err != nil {
+		log.Println("Failed to create titlesDoc", err)
+	}
+
+	summaryDocs, err := prose.NewDocument(marketSummary)
+	if err != nil {
+		log.Println("Failed to create summaryDocs", err)
+	}
+
+	for _, tok := range titlesDoc.Tokens() {
+		if tok.Text.string() 
+	}
+
+	// for _, tok := range summaryDocs.Tokens() {
+	// 	fmt.Println(tok.Text, tok.Tag, tok.Label)
+	// }
 
 }
 
 func createDictionary() (string, string) {
-	var( 
-		path = "/Users/josephodhiambo/Python/NLPTitles/scripts/jsonFeeds/"
+	var (
+		path     = "/Users/josephodhiambo/Python/NLPTitles/scripts/jsonFeeds/"
 		articles map[string]interface{}
-		mTitles string
+		mTitles  string
 		mSummary string
 	)
 
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
-        log.Fatal(err)
-    }
+		log.Fatal(err)
+	}
 
-    for _, f := range files {
+	for _, f := range files {
 		jsonFile, err := os.Open(path + f.Name())
 		if err != nil {
 			log.Println("This shouldn't be possible, unless empty directory", err)
