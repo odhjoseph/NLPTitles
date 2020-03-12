@@ -2,11 +2,10 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
-	"regex"
+	"fmt"
 
 	"gopkg.in/jdkato/prose.v2"
 )
@@ -33,10 +32,7 @@ func main() {
 		log.Println("Failed to create summaryDocs", err)
 	}
 
-	for _, tok := range titlesDoc.Tokens() {
-		if tok.Text.string() 
-	}
-
+	fmt.Println(titlesDoc, summaryDocs)
 	// for _, tok := range summaryDocs.Tokens() {
 	// 	fmt.Println(tok.Text, tok.Tag, tok.Label)
 	// }
