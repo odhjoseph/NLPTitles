@@ -3,8 +3,10 @@ package main
 import (
 	"database/sql"
 	"encoding/csv"
+	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"os"
 
@@ -40,18 +42,34 @@ func main() {
 	}
 
 	log.Println("Connection... on")
-
+	writeJSONtoSQL(db, "search2020-03-05.json")
 }
 
-func writeJSONtoSQL(file string) bool {
+func writeJSONtoSQL(db *sql.DB, file string) bool {
+
 	//	sqlState := `CREATE TABLE feeds(id SERIAL PRIMARY KEY, hyperlink TEXT NOT NULL, titles TEXT NOT NULL);`
 	if isAlreadyInDatabase(file) {
 		return false //fix implementaiton to handle error handling
 	}
-	// var paths = []string{"/Users/josephodhiambo/Python/NLPTitles/scripts/jsonFeeds/",
-	// 	"/Users/josephodhiambo/Python/NLPTitles/scripts/titleDisplay/"}
+	var paths = []string{"/Users/josephodhiambo/Python/NLPTitles/scripts/jsonFeeds/",
+		"/Users/josephodhiambo/Python/NLPTitles/scripts/titleDisplay/"}
 
-	return true
+	var articles map[string]interface{}
+
+	jsonFile, err := os.Open(paths[1] + file)
+	if err != nil {
+		log.Println("This shouldn't be possible, unless empty directory", err)
+	}
+	defer jsonFile.Close()
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+	json.Unmarshal([]byte(byteValue), &articles)
+
+	sqlstate := `
+	INSERT INTO rssInfo (hyperlink, titles)
+	VALUES('tester.com', 'pleaseWork');`
+	_, err = db.Exec(sqlstate)
+
+	return true //doesn't work
 }
 
 func isAlreadyInDatabase(fileName string) bool {
