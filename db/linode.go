@@ -23,7 +23,15 @@ const (
 	dbname = "DBNAME"
 )
 
+type Article struct {
+	Hyperlink string
+}
+
 func main() {
+	// var paths = []string{"/Users/josephodhiambo/Python/NLPTitles/scripts/jsonFeeds/",
+	// 	"/Users/josephodhiambo/Python/NLPTitles/scripts/titleDisplay/"}
+	var articles map[string]interface{}
+
 	config := getEnv()
 	psqlInfo := fmt.Sprintf("host=%s port=%s user=%s "+
 		"password=%s dbname=%s sslmode=disable",
@@ -42,7 +50,35 @@ func main() {
 	}
 
 	log.Println("Connection... on")
-	writeJSONtoSQL(db, "search2020-03-05.json")
+	//sqlState := `CREATE TABLE feeds(hyperlink TEXT NOT NULL, titles TEXT NOT NULL);`
+	// sqlState := `
+	// INSERT INTO feeds (hyperlink, titles)
+	// VALUES('tester.com', 'pleaseWork');`
+
+	jsonFile, err := os.Open("/Users/josephodhiambo/go/godev/NLPTitles/scripts/titleDisplay/search2020-03-10.json")
+	if err != nil {
+		log.Println("This shouldn't be possible, unless empty directory", err)
+	}
+
+	defer jsonFile.Close()
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+	json.Unmarshal([]byte(byteValue), &articles)
+
+	for k := range articles {
+		if articles[k] != nil {
+			str := fmt.Sprintf("%v", articles[k])
+			sqlState := `
+			INSERT INTO feeds(hyperlink, titles)
+			VALUES('` + k + `', '` + str + `');`
+			_, err = db.Exec(sqlState)
+			if err != nil {
+				log.Print("Couldn't write this aritcle ", k, err)
+				continue
+			}
+		}
+
+	}
+
 }
 
 func writeJSONtoSQL(db *sql.DB, file string) bool {
@@ -66,7 +102,7 @@ func writeJSONtoSQL(db *sql.DB, file string) bool {
 
 	sqlstate := `
 	INSERT INTO rssInfo (hyperlink, titles)
-	VALUES('tester.com', 'pleaseWork');`
+	VALUES('tester.com2', 'pleaseWork2');`
 	_, err = db.Exec(sqlstate)
 
 	return true //doesn't work
