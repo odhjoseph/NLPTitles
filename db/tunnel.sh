@@ -3,4 +3,4 @@ export DBHOST=localhost
 export DBPORT=5433
 export DBUSER=main
 export DBPASS=eviljoker
-export DBNAME=DBNAME=marketTitles
+export DBNAME=marketTitles 

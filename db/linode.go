@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"reflect"
 
 	_ "github.com/lib/pq"
 )
@@ -50,31 +51,50 @@ func main() {
 	}
 
 	log.Println("Connection... on")
-	//sqlState := `CREATE TABLE feeds(hyperlink TEXT NOT NULL, titles TEXT NOT NULL);`
-	// sqlState := `
-	// INSERT INTO feeds (hyperlink, titles)
-	// VALUES('tester.com', 'pleaseWork');`
 
-	jsonFile, err := os.Open("/Users/josephodhiambo/go/godev/NLPTitles/scripts/titleDisplay/search2020-03-10.json")
+	jsonFile, err := os.Open("/Users/josephodhiambo/go/godev/NLPTitles/scripts/titleDisplay/search2020-03-16.json")
+
 	if err != nil {
 		log.Println("This shouldn't be possible, unless empty directory", err)
 	}
 
 	defer jsonFile.Close()
-	byteValue, _ := ioutil.ReadAll(jsonFile)
+	byteValue, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		log.Error("String", err)
+		return
+	}
 	json.Unmarshal([]byte(byteValue), &articles)
 
 	for k := range articles {
 		if articles[k] != nil {
-			str := fmt.Sprintf("%v", articles[k])
-			sqlState := `
-			INSERT INTO feeds(hyperlink, titles)
-			VALUES('` + k + `', '` + str + `');`
-			_, err = db.Exec(sqlState)
-			if err != nil {
-				log.Print("Couldn't write this aritcle ", k, err)
-				continue
+			//str := fmt.Sprintf("%v", v)
+			// sqlState := `
+			// INSERT INTO headlines(hyperlink, titles)
+			// VALUES('` + k + `', '` + str + `');`
+			// _, err = db.Exec(sqlState)
+			// if err != nil {
+			// 	log.Print("Couldn't write this aritcle ", k, err)
+			// 	continue
+			// }
+			article := articles[k]
+			titleList, ok := article.([]map[string]string)
+			if !ok {
+				log.Println("Failed to assert that interface is a string map", err)
+				return
 			}
+			for _, item := range titleList {
+				fmt.Println(item)
+				// sqlState := `
+				// INSERT INTO headlines(hyperlink, titles)
+				// VALUES('` + k + `', '` + item + `');`
+				// _, err = db.Exec(sqlState)
+				// if err != nil {
+				// 	log.Print("Couldn't write this aritcle ", k, err)
+				// 	continue
+				// }
+			}
+
 		}
 
 	}
@@ -104,8 +124,27 @@ func writeJSONtoSQL(db *sql.DB, file string) bool {
 	INSERT INTO rssInfo (hyperlink, titles)
 	VALUES('tester.com2', 'pleaseWork2');`
 	_, err = db.Exec(sqlstate)
-
 	return true //doesn't work
+}
+
+func walk(v reflect.Value) {
+	fmt.Printf("Visiting %v\n", v)
+	// Indirect through pointers and interfaces
+	for v.Kind() == reflect.Ptr || v.Kind() == reflect.Interface {
+		v = v.Elem()
+	}
+	switch v.Kind() {
+	case reflect.Array, reflect.Slice:
+		for i := 0; i < v.Len(); i++ {
+			walk(v.Index(i))
+		}
+	case reflect.Map:
+		for _, k := range v.MapKeys() {
+			walk(v.MapIndex(k))
+		}
+	default:
+		// handle other types
+	}
 }
 
 func isAlreadyInDatabase(fileName string) bool {

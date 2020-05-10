@@ -2,10 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
-	"fmt"
 
 	"gopkg.in/jdkato/prose.v2"
 )
@@ -17,10 +17,16 @@ type MarketFile struct {
 	cleanedTitles string
 }
 
+type MarketFiles struct {
+	marketTitles []MarketFile `json:"catlog_nodes"`
+}
+
 func main() {
 	var (
 		marketTitles, marketSummary = createDictionary()
 	)
+
+	fmt.Println(marketTitles, marketSummary)
 
 	titlesDoc, err := prose.NewDocument(marketTitles)
 	if err != nil {
@@ -33,6 +39,7 @@ func main() {
 	}
 
 	fmt.Println(titlesDoc, summaryDocs)
+
 	// for _, tok := range summaryDocs.Tokens() {
 	// 	fmt.Println(tok.Text, tok.Tag, tok.Label)
 	// }
@@ -41,7 +48,7 @@ func main() {
 
 func createDictionary() (string, string) {
 	var (
-		path     = "/Users/josephodhiambo/Python/NLPTitles/scripts/jsonFeeds/"
+		path     = "/Users/josephodhiambo/go/godev/NLPTitles/scripts/jsonFeeds/"
 		articles map[string]interface{}
 		mTitles  string
 		mSummary string

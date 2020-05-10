@@ -25,7 +25,6 @@ def writeDict(rssFeed):
                 for article in item:
                     title = article["title"]
                     summary = article["summary"]
-                    link = article["link"]
                     if feed in searchDict:
                         searchDict[feed].append(title)
                     else:

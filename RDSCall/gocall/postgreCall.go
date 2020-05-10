@@ -8,7 +8,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/service/rds/rdsutils"
-	"github.com/joho/godotenv"
+	//"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
 
@@ -20,12 +20,12 @@ const (
 	password   = "ufkS3GfMnclQUCyKVbAN" //aye fam delete this
 )
 
-func init() {
-	// loads values from .env into the system
-	if err := godotenv.Load(); err != nil {
-		log.Print("No .env file found")
-	}
-}
+// func init() {
+// 	// loads values from .env into the system
+// 	if err := godotenv.Load(); err != nil {
+// 		log.Print("No .env file found")
+// 	}
+// }
 
 func main() {
 	awsCreds := credentials.NewEnvCredentials()
